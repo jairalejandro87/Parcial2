@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+PARCIAL
+{% endblock %}
+
+{% block contenido %}
+<section class="section-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-md-auto">
+                <a class="nav-link" href="{{ url_for('registroUsuario') }}">Registrar Usuario</a>
+                <a class="nav-link" href="{{ url_for('login') }}">login</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="alert alert-success">
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
+            <form action="" method="POST"  enctype="multipart/form-data" class="form-group">
+                <label class="font-weight-bold">Imagen <span class="text-danger">*</span></label>
+                <input type="file" name="imagen" />
+                <button type="submit" class="btn btn-outline-dark d-inline text-light mr-2 mb-3 width-100"><i
+                        class="icon ion-md-person lead align-middle mr-2"></i> Subir archivo</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

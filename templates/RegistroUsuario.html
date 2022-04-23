@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block titulo %}
+Registro Usuario
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <center>
+                <h1>Parcial</h1>
+            </center>
+        </div>
+        <div class="col-sm">
+            <div class="">
+                <h1>Registro Usuario</h1>
+            </div>
+            <div class="mensajes">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul class="alert alert-success">
+                    {% for message in messages %}
+                    <li>{{message}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <div class="registro">
+                <form action="{{ url_for('registroUsuario') }}" method="post" class="form-group" autocomplete="off">
+
+                    <input class="form-control" type="text"  name="nombre" placeholder="Nombre usuario" value="{{nombre}}">
+                    <input class="form-control" type="email"  name="email" placeholder="Email" value="{{email}}">
+                    <input class="form-control" type="password"  name="password" placeholder="Contraseña" value="{{password}}">
+                    <div class="msg">{{ msg }}</div>
+                    <center>
+                        <input class="btn btn-primary" type="submit" value="Register"><br>
+                        <a href="{{ url_for('login') }}">Iniciar sesion</a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
