@@ -8,11 +8,8 @@ from smtplib import SMTP
 from flask_mail import Mail, Message
 from datetime import date, datetime
 
-db = mysql.connect(
-    host="academia.c1mebdhdxytu.us-east-1.rds.amazonaws.com",
-    user="p9",
-    password="ALrUBIaLYcHR",
-    database="p9"
+db = mysql.connector.connect(
+    host="localhost", user="root", password="", port=3306, database="registroUsuarios"
 )
 db.autocommit = True
 
@@ -314,5 +311,5 @@ def cambiarContra(email):
             )
 
 
-#app.run(debug=True)
+app.run(debug=True)
 
